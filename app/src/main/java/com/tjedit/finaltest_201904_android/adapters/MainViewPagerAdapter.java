@@ -9,9 +9,11 @@ import com.tjedit.finaltest_201904_android.fragments.NoticeListFragment;
 
 public class MainViewPagerAdapter extends FragmentStatePagerAdapter {
 
+    MyProfileFragment frag1 = null;
+    NoticeListFragment frag2 = null;
     int mNumOfTabs;
 
-    Fragment frag1, frag2, frag3;
+
 
     public MainViewPagerAdapter(FragmentManager fm, int numOfTabs) {
         super(fm);

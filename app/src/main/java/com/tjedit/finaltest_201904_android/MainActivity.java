@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.tjedit.finaltest_201904_android.adapters.MainViewPagerAdapter;
 import com.tjedit.finaltest_201904_android.databinding.ActivityLoginBinding;
 import com.tjedit.finaltest_201904_android.databinding.ActivityMainBinding;
 import com.tjedit.finaltest_201904_android.utils.ServerUtil;
@@ -18,6 +19,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends  BaseActivity{
 ActivityMainBinding act;
+    MainViewPagerAdapter mvpa;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,7 @@ ActivityMainBinding act;
 
     @Override
     public void setupEvents() {
+        act.viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(act.tabLayout));
         act.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -51,39 +54,10 @@ ActivityMainBinding act;
         act.tabLayout.addTab(act.tabLayout.newTab().setText("내 프로필"));
         act.tabLayout.addTab(act.tabLayout.newTab().setText("공지사항"));
 
+        mvpa = new MainViewPagerAdapter(getSupportFragmentManager(),2);
+        act.viewPager.setAdapter(mvpa);
 
-    String token = getIntent().getStringExtra("token");
-        ServerUtil.getRequestMeInfo(mContext, token, new ServerUtil.JsonResponseHandler() {
 
-            @Override
-            public void onResponse(JSONObject json) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            int code  = json.getInt("code");
-                            if(code == 200){
-                                JSONObject data = json.getJSONObject("data");
-                                JSONObject user = data.getJSONObject("user");
-
-                                String profile_image = user.getString("profile_image");
-                                String name  = user.getString("name");
-                                String billingAccount = user.getString("billing_account");
-
-                                Glide.with(mContext).load(profile_image).into(act.profileImg);
-                                act.profileName.setText(name);
-                                act.profileBankTxt.setText(billingAccount);
-
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                });
-
-            }
-        });
     }
 
     @Override
