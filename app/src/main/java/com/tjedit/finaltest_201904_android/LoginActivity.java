@@ -33,7 +33,7 @@ public class LoginActivity extends BaseActivity {
             public void onClick(View v) {
                 String inputId = act.idEdt.getText().toString();
                 String inputPwd = act.pwdEdt.getText().toString();
-                 ServerUtil.postRequestSignIn(mContext, inputId, inputPwd, new ServerUtil.JsonResponseHandler() {
+                ServerUtil.postRequestSignIn(mContext, inputId, inputPwd, new ServerUtil.JsonResponseHandler() {
                      @Override
                      public void onResponse(JSONObject json)                         {
                          runOnUiThread(new Runnable() {
@@ -46,6 +46,12 @@ public class LoginActivity extends BaseActivity {
                                          String token = data.getString("token");
 
                                          ContextUtil.setUserToken(mContext,token);
+
+                                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                         intent.putExtra("token",token);
+
+                                         startActivity(intent);
+                                         finish();
                                      }
                                      else{
                                          Toast.makeText(mContext, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show();

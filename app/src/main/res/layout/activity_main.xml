@@ -16,25 +16,23 @@
             android:layout_height="wrap_content"
             android:text="App Title"
             android:textSize="30sp"/>
-        <LinearLayout
-            android:padding="30sp"
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="내 프로필"
-                android:textSize="30sp"/>
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="공지사항"
-                android:textSize="30sp"/>
-        </LinearLayout>
+            app:tabGravity="fill"
+            app:tabTextColor="#000000"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#FF0000"
+            app:tabIndicatorColor="#0000FF"
+            app:tabIndicatorHeight="5dp">
+        </android.support.design.widget.TabLayout>
+
+
+
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
