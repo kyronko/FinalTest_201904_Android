@@ -19,7 +19,7 @@ import okhttp3.Response;
 
 public class ServerUtil {
     //    서버의 근본 주소. => 프로젝트마다 서버를 확인, 주소만 변경
-    private final static String BASE_URL = "http://delivery-dev-389146667.ap-northeast-2.elb.amazonaws.com/api/docs/";
+    private final static String BASE_URL = "http://delivery-dev-389146667.ap-northeast-2.elb.amazonaws.com";
 
 
     //    서버의 응답을 처리하는 역할을 담당하는 인터페이스
