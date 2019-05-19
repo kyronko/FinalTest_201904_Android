@@ -25,49 +25,12 @@
             app:tabTextColor="#000000"
             app:tabMode="fixed"
             app:tabSelectedTextColor="#FF0000"
-            app:tabIndicatorColor="#0000FF"
-            app:tabIndicatorHeight="5dp">
+            app:tabIndicatorColor="#F8CECE"
+            app:tabIndicatorHeight="8dp">
         </android.support.design.widget.TabLayout>
 
 
 
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileImg"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@mipmap/ic_launcher"/>
-            <TextView
-                android:id="@+id/profileName"
-                android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="아이디가 나옵니다"
-                android:textSize="30sp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="25dp"
-            android:padding="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:layout_marginBottom="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="계좌번호"
-                android:textSize="26sp"/>
-            <TextView
-                android:id="@+id/profileBankTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="26sp"
-                android:text="계좌번호 숫자"/>
-        </LinearLayout>
+
     </LinearLayout>
 </layout>
