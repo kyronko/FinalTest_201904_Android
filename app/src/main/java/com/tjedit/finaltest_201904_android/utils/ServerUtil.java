@@ -17,7 +17,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class ConnectServer {
+public class ServerUtil {
     //    서버의 근본 주소. => 프로젝트마다 서버를 확인, 주소만 변경
     private final static String BASE_URL = "http://delivery-dev-389146667.ap-northeast-2.elb.amazonaws.com/api/docs/";
 
@@ -30,7 +30,7 @@ public class ConnectServer {
     }
 
 
-    public static void postRequestSignIn(Context context, String user_id, String password, final JsonResponseHandler handler) {
+    public static void postRequestSignIn(Context context, String userId, String password, final JsonResponseHandler handler) {
 
 //        클라이언트 역할임은 무슨 메쏘드이든 동일. 항상 복붙
 
@@ -40,7 +40,7 @@ public class ConnectServer {
 //        formData에 파라미터를 첨부하는 코드.
 
         RequestBody requestBody = new FormBody.Builder()
-                .add("user_id", user_id)
+                .add("user_id", userId)
                 .add("password", password)
                 .build();
 

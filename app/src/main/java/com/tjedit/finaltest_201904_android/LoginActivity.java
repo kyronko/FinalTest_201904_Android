@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.tjedit.finaltest_201904_android.databinding.ActivityLoginBinding;
-import com.tjedit.finaltest_201904_android.utils.ConnectServer;
+import com.tjedit.finaltest_201904_android.utils.ServerUtil;
 import com.tjedit.finaltest_201904_android.utils.ContextUtil;
 
 import org.json.JSONException;
@@ -33,7 +33,7 @@ public class LoginActivity extends BaseActivity {
                 String inputId = act.idEdt.getText().toString();
                 String inputPwd = act.pwdEdt.getText().toString();
                 ContextUtil.setUserInputId(mContext, inputId);
-                ConnectServer.postRequestSignIn(mContext, inputId, inputPwd, new ConnectServer.JsonResponseHandler() {
+                ServerUtil.postRequestSignIn(mContext, inputId, inputPwd, new ServerUtil.JsonResponseHandler() {
                     @Override
                     public void onResponse(final JSONObject json) {
                         runOnUiThread(new Runnable() {
