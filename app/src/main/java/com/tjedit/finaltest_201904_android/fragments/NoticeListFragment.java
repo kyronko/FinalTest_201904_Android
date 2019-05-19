@@ -11,16 +11,15 @@ import android.view.ViewGroup;
 
 import com.tjedit.finaltest_201904_android.R;
 import com.tjedit.finaltest_201904_android.databinding.FragmentMyProfileBinding;
+import com.tjedit.finaltest_201904_android.databinding.FragmentNoticeBinding;
 
-
-public class MyProfileFragment extends Fragment {
-
-    FragmentMyProfileBinding binding;
+public class NoticeListFragment extends Fragment {
+    FragmentNoticeBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_notice, container, false);
         return binding.getRoot();
     }
 
@@ -31,3 +30,4 @@ public class MyProfileFragment extends Fragment {
 
     }
 }
+
